@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
+/*----------------------------------ESTILO DO CORPO DO SITE----------------------------*/
+body {
+    font-family: 'Tektur', cursive;
+    background-image: url(https://i.pinimg.com/originals/2e/73/92/2e7392bd69172cb64fb648d6a5abb830.gif);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#formulario{
+    margin: 5%;
+    margin-left: 15%;
+}
+
+h1 {
+    color: #333;
+}
+
+div{
+    background-color: white;
+    padding: 40px;
+}
+
+/*----------------------------------ESTILO DO BOTAO----------------------------*/
+button {
+    margin-top: 10px;
+    padding: 15px 25px;
+    background-color: #08395a;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #3498db;
+    transition: 1s;
+}
+
+.entrar{
+    margin-top: 5%;
+    margin-left: -17%;
+}
+
+/*-----------------------------------------------------------------------------*/
+
+label, input {
+    display: block;
+    margin-top: 5px;
+}
+
+input {
+    padding: 9px ;
+    width: 100%;
+}
+
+#dadosUsuario {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#dadosUsuario p {
+    margin: 10px 0;
+}
+
+.titulo, strong{
+    color: rgb(48, 48, 224);
+}
+
+.titulos{
+    color: darkblue;
+}

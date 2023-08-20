@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo pag.css">
+    <title>Pagamento da Fatura</title>
+</head>
+<body>
+    <div>
+        <h1 class="titulos">Pagamento da Fatura</h1>
+        <p>Olá, informe o valor da fatura:</p>
+        <input type="number" id="valorFatura">
+        <button onclick="calcularTotal()">Calcular</button>
+    </div>
+
+    <div id="opcoesPagamento" style="display: none;">
+        <h2 class="titulos">Opções de Pagamento</h2>
+        <ul>
+            <li><strong class="titulo">Pagamento no dinheiro/cheque: </strong> 10% de desconto</li><br>
+            <li><strong class="titulo">Pagamento no crédito/à vista: </strong> 5% de desconto</li><br>
+            <li><strong class="titulo">Pagamento no crédito 2x: </strong> Valor da Fatura + 10% Juros</li><br>
+            <li><strong class="titulo">Pagamento no crédito 3x: </strong> Valor da Fatura + 20% Juros</li><br>
+            <li><strong class="titulo">Atraso no pagamento: </strong> 2% de juros ao dia</li><br>
+        </ul>
+        <button onclick="exibirOpcoes()">Exibir Opções</button>
+    </div>
+
+    <div id="resultado" style="display: none;">
+        <h2 class="titulos">Resultado</h2>
+        <p id="totalPagar"></p>
+    </div>
+
+    <script>
+        const nomeCliente = localStorage.getItem("nomeCliente");
+        document.getElementById("nomeCliente").textContent = nomeCliente;
+
+        function calcularTotal() {
+            const valorFatura = parseFloat(document.getElementById("valorFatura").value);
+            localStorage.setItem("valorFatura", valorFatura);
+
+            document.getElementById("opcoesPagamento").style.display = "block";
+        }
+
+        function exibirOpcoes() {
+            const valorFatura = parseFloat(localStorage.getItem("valorFatura"));
+
+            const opcoesPagamento = document.getElementById("opcoesPagamento");
+            const resultado = document.getElementById("resultado");
+            const totalPagar = document.getElementById("totalPagar");
+
+            opcoesPagamento.style.display = "none";
+            resultado.style.display = "block";
+
+            const descontoDinheiroCheque = valorFatura * 0.9;
+            const descontoCreditoVista = valorFatura * 0.95;
+            const jurosCredito2x = valorFatura * 1.1;
+            const jurosCredito3x = valorFatura * 1.2;
+            const jurosAtraso = valorFatura * 1.02; // 2% de juros
+
+            totalPagar.innerHTML = `
+                <strong>Total a pagar:</strong><br><br>
+                <strong class="titulo">Pagamento no dinheiro/cheque:</strong> R$ ${descontoDinheiroCheque.toFixed(2)}<br><br>
+                <strong class="titulo">Pagamento no crédito/à vista:</strong> R$ ${descontoCreditoVista.toFixed(2)}<br><br>
+                <strong class="titulo">Pagamento no crédito 2x:</strong> R$ ${jurosCredito2x.toFixed(2)}<br><br>
+                <strong class="titulo">Pagamento no crédito 3x:</strong> R$ ${jurosCredito3x.toFixed(2)}<br><br>
+                <strong class="titulo">Atraso no pagamento:</strong> R$ ${jurosAtraso.toFixed(2)}
+            </div>
+            `;
+        }
+    </script>
+</body>
+</html>

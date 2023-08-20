@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo inicio.css">
+    <title>Calculadora de pagamentos</title>
+</head>
+
+<body>
+    <div>
+    <h1 class="titulos">CALCULADORA DE PAGAMENTOS</h1></div>
+    <button onclick="mostrarFormulario()" class="entrar">Entrar</button>
+
+    <div id="formulario" style="display: none;">
+        <h2 class="titulos">Informações do Cliente</h2>
+        <label for="nome" class="titulo">Nome:</label>
+        <input type="text" id="nome"><br>
+
+        <label for="idade" class="titulo">Idade:</label>
+        <input type="number" id="idade"><br>
+
+        <label for="telefone" class="titulo">Telefone:</label>
+        <input type="text" id="telefone"><br>
+
+        <label for="endereco" class="titulo">Endereço:</label>
+        <input type="text" id="endereco"><br>
+
+        <label for="cep" class="titulo">CEP:</label>
+        <input type="text" id="cep"><br>
+
+        <label for="cpf" class="titulo">CPF:</label>
+        <input type="text" id="cpf"><br>
+
+        <button onclick="exibirDados()" class="exibir">Exibir Dados</button>
+    </div>
+
+    <div id="dadosUsuario" style="display: none;">
+        <h2 class="titulos">Dados do Cliente</h2>
+        <p><strong>Nome:</strong> <span id="nomeSpan"></span></p>
+        <p><strong>Idade:</strong> <span id="idadeSpan"></span></p>
+        <p><strong>Telefone:</strong> <span id="telefoneSpan"></span></p>
+        <p><strong>Endereço:</strong> <span id="enderecoSpan"></span></p>
+        <p><strong>CEP:</strong> <span id="cepSpan"></span></p>
+        <p><strong>CPF:</strong> <span id="cpfSpan"></span></p>
+
+        <a href="pagamento.html"><button class="proximo">Próximo</button></a>
+    </div>
+    <!-- --------------------------------------------------------------- JAVA SCRIPT ------------------------------------------------------ -->
+    <script>
+        function mostrarFormulario() {
+            document.getElementById("formulario").style.display = "block";
+        }
+
+        function exibirDados() {
+            const nome = document.getElementById("nome").value;
+            const idade = document.getElementById("idade").value;
+            const telefone = document.getElementById("telefone").value;
+            const endereco = document.getElementById("endereco").value;
+            const cep = document.getElementById("cep").value;
+            const cpf = document.getElementById("cpf").value;
+
+            document.getElementById("nomeSpan").textContent = nome;
+            document.getElementById("idadeSpan").textContent = idade;
+            document.getElementById("telefoneSpan").textContent = telefone;
+            document.getElementById("enderecoSpan").textContent = endereco;
+            document.getElementById("cepSpan").textContent = cep;
+            document.getElementById("cpfSpan").textContent = cpf;
+
+            document.getElementById("dadosUsuario").style.display = "block";
+        }
+    </script>
+</body>
+</html>
